@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Events from "./pages/Even/Events";
 import Home from "./pages/Home/Home";
 import "./styles/App.scss";
 
@@ -8,6 +9,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/events" element={<Events />} />
             </Routes>
         </BrowserRouter>
     );

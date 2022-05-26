@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Header.scss";
 
 
-const Header = () => {
+const Header = (props) => {
     const navigate = useNavigate();
     function NavigateTo() {
         navigate("/" );
@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <div className="header">
             <h1 className="header-h" onClick={NavigateTo}>SSTU.Finder</h1>
-            <p className="header-sub">some text</p>
+            <p className="header-sub">{props.name}</p>
         </div>
     );
 }
