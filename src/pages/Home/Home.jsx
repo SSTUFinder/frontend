@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React  from "react";
 import Header from "../../components/UI/Header/Header";
 import { useNavigate } from "react-router-dom";
 
@@ -19,13 +19,16 @@ function Home() {
     function NavToEvent() {
         navigate("/events");
     }
+    function NavToSearch() {
+        navigate("/search")
+    }
 
     return (
         <div className="home">
             <Header name="Главная"/>
 
             <div className="home-menu">
-                <div className="home-item">
+                <div className="home-item" onClick={NavToSearch}>
                     <img src={Search} alt="search" />
                     <p>Поиск</p>
                 </div>

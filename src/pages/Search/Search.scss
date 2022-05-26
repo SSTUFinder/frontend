@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.search {
+    &-search {
+        display: block;
+        margin: 2rem auto;
+        font-weight: 800;
+        font-size: 34px;
+        line-height: 41px;
+
+        width: 248px;
+        height: 59px;
+        
+    }
+}
