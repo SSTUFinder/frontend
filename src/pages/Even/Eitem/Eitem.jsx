@@ -9,6 +9,7 @@ const Eitem = (props) => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Perspiciatis eos, voluptates veniam reiciendis dolorem officia
             </p>
+            <p className="eventItem-location">5/278</p>
             <div className="eventItem-bot">
                 <p className="eventItem-date">11.12.2000</p>
                 <p className="eventItem-person">Julia Hulia</p>

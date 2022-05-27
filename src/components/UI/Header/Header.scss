@@ -32,3 +32,19 @@
     }
 
 }
+
+@media screen and (max-width: 698px) {
+    .header {
+   
+        &-h {
+            font-size: 50px;
+        }
+    
+        &-sub {
+            font-size: 24px;
+            left: 100px;
+    
+        }
+    
+    }
+}

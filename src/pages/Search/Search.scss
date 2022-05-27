@@ -8,8 +8,23 @@
         font-size: 34px;
         line-height: 41px;
 
-        width: 248px;
+        width: 300px;
         height: 59px;
+        padding: 1rem 1.5rem;
+
+        border: none;
+        outline: none;
+        border-radius: 10px;
+
+        -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        transition: all .3s ease-in-out;
+        
+
+        &:focus {
+            transform: scale(1.05);
+        }
         
     }
 }

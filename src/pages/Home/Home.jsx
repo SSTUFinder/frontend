@@ -16,23 +16,17 @@ import Faq from "../../assets/index/faq.svg"
 function Home() {
 
     const navigate = useNavigate();
-    function NavToEvent() {
-        navigate("/events");
-    }
-    function NavToSearch() {
-        navigate("/search")
-    }
 
     return (
         <div className="home">
             <Header name="Главная"/>
 
             <div className="home-menu">
-                <div className="home-item" onClick={NavToSearch}>
+                <div className="home-item" onClick={() => navigate("/search")}>
                     <img src={Search} alt="search" />
                     <p>Поиск</p>
                 </div>
-                <div className="home-item" onClick={NavToEvent}>
+                <div className="home-item" onClick={() => navigate("/events")}>
                     <img src={Event} alt="events" />
                     <p>Мероприятия</p>
                 </div>
@@ -40,11 +34,11 @@ function Home() {
                     <img src={Map} alt="maps" />
                     <p>Карта</p>
                 </div>
-                <div className="home-item">
+                <div className="home-item" onClick={() => navigate("/faq")}>
                     <img src={Faq} alt="faq" />
-                    <p>FAQ</p>
+                    <p>Справка</p>
                 </div>
-                <div className="home-item">
+                <div className="home-item" onClick={() => navigate("/profile")}>
                     <img src={Profile} alt="profile" />
                     <p>Профиль</p>
                 </div>
@@ -52,11 +46,11 @@ function Home() {
                     <img src={Quit} alt="quit" />
                     <p>Выйти</p>
                 </div>
-                <div className="home-item">
+                <div className="home-item" onClick={() => navigate("/registr")}>
                     <img src={Reg} alt="reg" />
                     <p>Регистрация</p>
                 </div>
-                <div className="home-item">
+                <div className="home-item" onClick={() => navigate("/auth")}>
                     <img src={Auth} alt="auth" />
                     <p>Авторизация</p>
                 </div>
