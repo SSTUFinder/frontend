@@ -30,7 +30,7 @@ function Home() {
                     <img src={Event} alt="events" />
                     <p>Мероприятия</p>
                 </div>
-                <div className="home-item">
+                <div className="home-item" onClick={() => navigate("/map")}>
                     <img src={Map} alt="maps" />
                     <p>Карта</p>
                 </div>
