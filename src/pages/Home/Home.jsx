@@ -1,6 +1,8 @@
 import React  from "react";
 import Header from "../../components/UI/Header/Header";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 import "./Home.scss"
 
@@ -16,6 +18,16 @@ import Faq from "../../assets/index/faq.svg"
 function Home() {
 
     const navigate = useNavigate();
+
+
+    async function getSearch() {
+        let url = "http://localhost:8080/test/data";
+        let response = await axios.get(url);
+
+        console.log(response);
+    }
+
+    getSearch();
 
     return (
         <div className="home">
