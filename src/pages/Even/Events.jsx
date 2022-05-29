@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import Header from "../../components/UI/Header/Header";
 import Modal from "../../components/UI/Modal/Modal";
 import Eitem from "./Eitem/Eitem";
+import axios from "axios";
+
 
 import "./Events.scss";
 
@@ -10,6 +12,17 @@ function Events() {
 
     const [event, setEvent] = useState({});
     const [modalActive, setModalActive] = useState(false)
+
+
+    async function getEvents() {
+        let url = "http://localhost:8080/events";
+        let response = await axios.get(url);
+
+        console.log(response.data);
+        setEvent(response.data);
+    }
+
+    getEvents();
 
 
     return (

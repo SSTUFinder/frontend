@@ -17,15 +17,15 @@ const Profile = () => {
                 </div>
                 <div className="profile-item">
                     <p className='profile-item-title'>Имя</p>
-                    <p className='profile-item-descr'>kek</p>
+                    <p className='profile-item-descr'>Ринат Ягудин</p>
                 </div>
                 <div className="profile-item">
                     <p className='profile-item-title'>Почта</p>
-                    <p className='profile-item-descr'>kek</p>
+                    <p className='profile-item-descr'>yagudin.work@gmail.com</p>
                 </div>
                 <div className="profile-item">
                     <p className='profile-item-title'>Номер студ. книжки</p>
-                    <p className='profile-item-descr'>kek</p>
+                    <p className='profile-item-descr'>180588</p>
                 </div>
             </div>
             <Modal active={modalActive} setActive={setModalActive}>
