@@ -16,7 +16,7 @@
     &-marker {
         position: absolute;
         cursor: pointer;
-        transition: .2s ease-in-out;
+        transition: 0.2s ease-in-out;
         width: 60px;
         height: auto;
 
@@ -57,7 +57,7 @@
         // width: 100%;
         justify-content: center;
         align-items: center;
-        
+
         &-btn {
             width: 130px;
             height: 50px;
@@ -66,10 +66,12 @@
             border-radius: 10px;
             background-color: $orange;
             color: $light-orange;
+            cursor: pointer;
         }
         &-counter {
             font-size: 40px;
             padding: 0 2rem;
+            cursor: default;
         }
     }
 }
@@ -134,4 +136,50 @@
 .seven {
     top: 22%;
     left: 16%;
+}
+
+.five-inpit {
+    top: 20%;
+    left: 56%;
+    width: 40px;
+    height: auto;
+}
+
+.toilet {
+    left: 3%;
+    top: 17%;
+    width: 40px;
+    height: auto;
+}
+
+.kek {
+    top: 36%;
+    left: 83%;
+    width: 40px;
+    height: auto;
+    filter: invert(41%) sepia(56%) saturate(4951%) hue-rotate(221deg)
+        brightness(103%) contrast(99%);
+}
+
+.markerTwo {
+    top: 36%;
+    left: 24%;
+    width: 40px;
+    height: auto;
+    filter: invert(41%) sepia(56%) saturate(4951%) hue-rotate(221deg)
+        brightness(103%) contrast(99%);
+}
+
+.markerOne {
+    top: 28%;
+    left: 72%;
+    width: 40px;
+    height: auto;
+    filter: invert(41%) sepia(56%) saturate(4951%) hue-rotate(221deg)
+        brightness(103%) contrast(99%);
+}
+
+
+.bottom {
+    top: 550px;
 }

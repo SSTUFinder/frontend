@@ -50,6 +50,7 @@ const Registr = () => {
                 })
                 .then(function (response) {
                     console.log(response);
+                    navigate("/")
                 })
                 .catch(function (error) {
                     console.log(error);

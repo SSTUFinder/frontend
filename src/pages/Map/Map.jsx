@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../../components/UI/Header/Header";
 import { useNavigate } from "react-router-dom";
 
-
 import "./Map.scss";
 import MainMap from "../../assets/map/map.png";
 import Marker from "../../assets/map/marker.svg";
@@ -126,12 +125,7 @@ const Map = () => {
                         }}
                         onMouseLeave={() => setIsShown(false)}
                     />
-                    {isShown && (
-                        <div className="map-info">
-                            <p className="map-info-main">{info}</p>
-                            <p className="map-info-descr">{descr}</p>
-                        </div>
-                    )}
+
                     <img
                         src={Marker}
                         alt="6 корпус"
@@ -156,7 +150,7 @@ const Map = () => {
                     />
                     <img
                         src={Marker}
-                        alt="7 корпус"
+                        alt="marker"
                         className="map-marker seven"
                         onMouseEnter={() => {
                             setIsShown(true);
@@ -165,6 +159,34 @@ const Map = () => {
                         }}
                         onMouseLeave={() => setIsShown(false)}
                     />
+                    <img
+                        src={Marker}
+                        alt="marker"
+                        className="map-marker markerOne"
+                        onMouseEnter={() => {
+                            setIsShown(true);
+                            setInfo("веселые старты");
+                            setDescr("Спортивное соревнование между институтами за призы!");
+                        }}
+                        onMouseLeave={() => setIsShown(false)}
+                    />
+                    <img
+                        src={Marker}
+                        alt="marker"
+                        className="map-marker markerTwo"
+                        onMouseEnter={() => {
+                            setIsShown(true);
+                            setInfo("Собрание клуба настолок");
+                            setDescr("Приходите играть в настолки под открытым небом с пикником.");
+                        }}
+                        onMouseLeave={() => setIsShown(false)}
+                    />
+                    {isShown && (
+                        <div className="map-info">
+                            <p className="map-info-main">{info}</p>
+                            <p className="map-info-descr">{descr}</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

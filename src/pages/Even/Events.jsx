@@ -19,6 +19,7 @@ function Events() {
     const [title, setTitle] = useState("");
     const [descr, setDescr] = useState("");
     const [place, setPlace] = useState("");
+    const [time, setTime] = useState("");
 
     async function getEvents() {
         let url = "http://localhost:8080/events/";
@@ -35,10 +36,12 @@ function Events() {
                 place: place,
                 title: title,
                 description: descr,
+                time: time
             })
             .then(function (response) {
                 console.log(response);
                 getEvents();
+                setModalActive(false)
             })
             .catch(function (error) {
                 console.log(error);
@@ -87,6 +90,13 @@ function Events() {
                         className="form-input"
                         value={place}
                         onChange={(e) => setPlace(e.target.value)}
+                    />
+                    <p className="form-title">время</p>
+                    <input
+                        type="text"
+                        className="form-input"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
                     />
                     <div className="form-btn">
                     <p className="form-btn-text" onClick={postEvent}>
