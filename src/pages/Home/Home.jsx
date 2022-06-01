@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Header from "../../components/UI/Header/Header";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoggedContext from "../../services/loggedContext";
 import IdContext from "../../services/idContext";
+import RoleContext from "../../services/roleContext";
 
 import "./Home.scss";
 
@@ -18,10 +19,9 @@ import Faq from "../../assets/index/faq.svg";
 
 function Home() {
     const navigate = useNavigate();
-    const {isLogged, setIsLogged} = useContext(LoggedContext);
-    const {userId, setUserId} = useContext(IdContext);
-    const [userRole, setUserRole] = useState("student");
-
+    const { isLogged, setIsLogged } = useContext(LoggedContext);
+    const { userId, setUserId } = useContext(IdContext);
+    const { userRole, setUserRole } = useContext(RoleContext);
     async function getTestData() {
         let url = "http://localhost:8080/test/data";
         let response = await axios.get(url);
@@ -29,7 +29,9 @@ function Home() {
         console.log(response);
     }
 
-    getTestData();
+    useEffect(() => {
+        getTestData();
+    }, []);
 
     return (
         <div className="home">
@@ -51,7 +53,7 @@ function Home() {
                         className="home-item"
                         onClick={() => {
                             setIsLogged(true);
-                            navigate("/auth")
+                            navigate("/auth");
                         }}
                     >
                         <img src={Auth} alt="auth" />
@@ -89,10 +91,13 @@ function Home() {
                         <img src={Profile} alt="profile" />
                         <p>Профиль</p>
                     </div>
-                    <div className="home-item" onClick={() => {
-                        setIsLogged(false)
-                        setUserId(null);
-                    }}>
+                    <div
+                        className="home-item"
+                        onClick={() => {
+                            setIsLogged(false);
+                            setUserId(null);
+                        }}
+                    >
                         <img src={Quit} alt="quit" />
                         <p>Выйти</p>
                     </div>

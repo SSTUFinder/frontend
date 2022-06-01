@@ -1,20 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Header from "../../components/UI/Header/Header";
+import axios from "axios";
+import RoleContext from "../../services/roleContext";
 
 import "../Auth/Auth.scss";
 import UserIcon from "../../assets/reg/icon.svg";
 
 const Registr = () => {
-    const [userType, setUserType] = useState("student");
+    const { userRole, setUserRole } = useContext(RoleContext);
+    const [name, setName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [recordBook, setRecordBook] = useState("");
 
+    async function postUser() {
+        if (userRole === "student") {
+            let url = `http://localhost:8080/regStudent`;
+            axios
+                .post(url, {
+                    firstname: name,
+                    lastname: lastName,
+                    password: password,
+                    recordBookNumber: recordBook,
+                    email: email,
+                    login: login,
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        } else {
+            let url = `http://localhost:8080/regTeacher`;
+            axios
+                .post(url, {
+                    firstname: name,
+                    lastname: lastName,
+                    password: password,
+                    email: email,
+                    login: login,
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
 
     return (
         <div className="form">
             <Header name="регистрация" />
             <div className="form-user">
                 <div
-                    className="form-user-wrap"
-                    onClick={() => setUserType("student")}
+                    className={
+                        userRole == "student"
+                            ? "form-user-wrap activeU"
+                            : "form-user-wrap"
+                    }
+                    onClick={() => setUserRole("student")}
                 >
                     <img
                         src={UserIcon}
@@ -24,8 +72,12 @@ const Registr = () => {
                     <p className="form-user-title">студент</p>
                 </div>
                 <div
-                    className="form-user-wrap"
-                    onClick={() => setUserType("teacher")}
+                    className={
+                        userRole == "teacher"
+                            ? "form-user-wrap activeU"
+                            : "form-user-wrap"
+                    }
+                    onClick={() => setUserRole("teacher")}
                 >
                     <img
                         src={UserIcon}
@@ -37,33 +89,92 @@ const Registr = () => {
             </div>
 
             <div className="form-menu">
-                {userType === "student" ? (
+                {userRole === "student" ? (
                     <div>
                         <p className="form-title">Логин</p>
-                        <input type="text" className="form-input" />
-                        <p className="form-title">Имя и Фамилия</p>
-                        <input type="text" className="form-input" />
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                        />
+                        <p className="form-title">Имя</p>
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <p className="form-title">Фамилия</p>
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                        />
                         <p className="form-title">Номер зачетной книжки</p>
-                        <input type="text" className="form-input" />
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={recordBook}
+                            onChange={(e) => setRecordBook(e.target.value)}
+                        />
                         <p className="form-title">Почта</p>
-                        <input type="email" className="form-input" />
+                        <input
+                            type="email"
+                            className="form-input"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                         <p className="form-title">Пароль</p>
-                        <input type="password" className="form-input" />
+                        <input
+                            type="password"
+                            className="form-input"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
                 ) : (
                     <div>
                         <p className="form-title">Логин</p>
-                        <input type="text" className="form-input" />
-                        <p className="form-title">Имя и Фамилия</p>
-                        <input type="text" className="form-input" />
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                        />
+                        <p className="form-title">Имя</p>
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <p className="form-title">Фамилия</p>
+                        <input
+                            type="text"
+                            className="form-input"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                        />
                         <p className="form-title">Почта</p>
-                        <input type="email" className="form-input" />
+                        <input
+                            type="email"
+                            className="form-input"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                         <p className="form-title">Пароль</p>
-                        <input type="password" className="form-input" />
+                        <input
+                            type="password"
+                            className="form-input"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
                 )}
                 <div className="form-btn">
-                    <p className="form-btn-text">зарегистрироваться!</p>
+                    <p className="form-btn-text" onClick={postUser}>зарегистрироваться!</p>
                 </div>
             </div>
         </div>
