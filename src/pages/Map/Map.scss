@@ -1,0 +1,114 @@
+@import "../../styles/variables.scss";
+
+.map {
+    &-header {
+        font-size: 40px;
+        margin: 1rem 3rem;
+    }
+
+    &-map {
+        width: 100%;
+        height: auto;
+        margin: 2rem auto;
+        position: relative;
+    }
+
+    &-marker {
+        position: absolute;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        width: 60px;
+        height: auto;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &-info {
+        position: fixed;
+        left: 50px;
+        top: 200px;
+        width: 450px;
+        height: fit-content;
+        text-align: center;
+        -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        background-color: #fff;
+        z-index: 10;
+
+        &-main {
+            font-size: 35px;
+            width: 90%;
+            margin: 1rem 0;
+        }
+        &-descr {
+            font-size: 25px;
+            margin: 1rem 0;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+.first {
+    left: 66%;
+    top: 28%;
+}
+
+.fifth {
+    left: 58%;
+    top: 47%;
+}
+
+.ntb {
+    left: 71%;
+    top: 10%;
+}
+
+.second {
+    left: 35%;
+    top: 28%;
+}
+
+.fourth {
+    left: 9%;
+    top: 27%;
+}
+
+.food {
+    left: 53%;
+    top: 16%;
+}
+
+.gym {
+    left: 45%;
+    top: 9%;
+}
+
+.art {
+    top: 8%;
+    left: 63%;
+    width: 60px;
+    height: auto;
+}
+
+.three {
+    left: 9%;
+    top: 36%;
+}
+
+.six {
+    left: 9%;
+    top: 20%;
+}
+
+.stadium {
+    left: 19%;
+    top: 37%;
+}
+
+.seven {
+    top: 22%;
+    left: 16%;
+}

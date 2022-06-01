@@ -3,6 +3,8 @@ import Header from "../../components/UI/Header/Header";
 import Modal from "../../components/UI/Modal/Modal";
 import Eitem from "./Eitem/Eitem";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 
 import "./Events.scss";
@@ -10,16 +12,16 @@ import "./Events.scss";
 
 function Events() {
 
-    const [event, setEvent] = useState({});
+    const [events, setEvents] = useState({});
     const [modalActive, setModalActive] = useState(false)
 
 
     async function getEvents() {
-        let url = "http://localhost:8080/events";
+        let url = "http://localhost:8080/events/";
         let response = await axios.get(url);
 
         console.log(response.data);
-        setEvent(response.data);
+        setEvents(response.data);
     }
 
     getEvents();
