@@ -22,16 +22,16 @@ function Home() {
     const { isLogged, setIsLogged } = useContext(LoggedContext);
     const { userId, setUserId } = useContext(IdContext);
     const { userRole, setUserRole } = useContext(RoleContext);
-    async function getTestData() {
-        let url = "http://localhost:8080/test/data";
-        let response = await axios.get(url);
+    // async function getTestData() {
+    //     let url = "http://localhost:8080/test/data";
+    //     let response = await axios.get(url);
 
-        console.log(response);
-    }
+    //     console.log(response);
+    // }
 
-    useEffect(() => {
-        getTestData();
-    }, []);
+    // useEffect(() => {
+    //     getTestData();
+    // }, []);
 
     return (
         <div className="home">
@@ -52,7 +52,6 @@ function Home() {
                     <div
                         className="home-item"
                         onClick={() => {
-                            setIsLogged(true);
                             navigate("/auth");
                         }}
                     >

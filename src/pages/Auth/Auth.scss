@@ -110,6 +110,13 @@
             margin: 0;
         }
     }
+
+    &-error {
+        margin: 1.5rem auto;
+        color: $orange;
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
     
 }
 

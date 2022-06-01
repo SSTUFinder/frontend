@@ -2,14 +2,22 @@ import React, { useState, useContext } from "react";
 import Header from "../../components/UI/Header/Header";
 import axios from "axios";
 import RoleContext from "../../services/roleContext";
+import { useNavigate } from "react-router-dom";
 
 import "./Auth.scss";
 import UserIcon from "../../assets/reg/icon.svg";
+import IdContext from "../../services/idContext";
+import LoggedContext from "../../services/loggedContext";
 
 const Auth = () => {
+    const navigate = useNavigate();
+    const { isLogged, setIsLogged } = useContext(LoggedContext);
     const { userRole, setUserRole } = useContext(RoleContext);
+    const { userId, setUserId } = useContext(IdContext);
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
+
+    const [errorInfo, setErrorInfo] = useState("");
 
     async function Auth() {
         let url = "http://localhost:8080/auth";
@@ -20,10 +28,14 @@ const Auth = () => {
                 role: userRole,
             })
             .then(function (response) {
-                console.log(response);
+                console.log(response.data);
+                setUserId(response.data);
+                setIsLogged(true);
+                navigate("/")
             })
             .catch(function (error) {
                 console.log(error);
+                setErrorInfo(error.response.data);
             });
     }
 
@@ -77,6 +89,7 @@ const Auth = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                <p className="form-error">{errorInfo}</p>
                 <div className="form-btn" onClick={Auth}>
                     <p className="form-btn-text">авторизироваться!</p>
                 </div>

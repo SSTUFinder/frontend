@@ -2,11 +2,13 @@ import React, { useState, useContext } from "react";
 import Header from "../../components/UI/Header/Header";
 import axios from "axios";
 import RoleContext from "../../services/roleContext";
+import { useNavigate } from "react-router-dom";
 
 import "../Auth/Auth.scss";
 import UserIcon from "../../assets/reg/icon.svg";
 
 const Registr = () => {
+    const navigate = useNavigate();
     const { userRole, setUserRole } = useContext(RoleContext);
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -14,6 +16,8 @@ const Registr = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [recordBook, setRecordBook] = useState("");
+
+    const [errorInfo, setErrorInfo] = useState("");
 
     async function postUser() {
         if (userRole === "student") {
@@ -29,6 +33,7 @@ const Registr = () => {
                 })
                 .then(function (response) {
                     console.log(response);
+                    navigate("/")
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -48,6 +53,7 @@ const Registr = () => {
                 })
                 .catch(function (error) {
                     console.log(error);
+                    setErrorInfo(error.response.data);
                 });
         }
     }
@@ -58,7 +64,7 @@ const Registr = () => {
             <div className="form-user">
                 <div
                     className={
-                        userRole == "student"
+                        userRole === "student"
                             ? "form-user-wrap activeU"
                             : "form-user-wrap"
                     }
@@ -73,7 +79,7 @@ const Registr = () => {
                 </div>
                 <div
                     className={
-                        userRole == "teacher"
+                        userRole === "teacher"
                             ? "form-user-wrap activeU"
                             : "form-user-wrap"
                     }
@@ -173,8 +179,12 @@ const Registr = () => {
                         />
                     </div>
                 )}
+                <p className="form-error">{errorInfo}</p>
+
                 <div className="form-btn">
-                    <p className="form-btn-text" onClick={postUser}>зарегистрироваться!</p>
+                    <p className="form-btn-text" onClick={postUser}>
+                        зарегистрироваться!
+                    </p>
                 </div>
             </div>
         </div>
